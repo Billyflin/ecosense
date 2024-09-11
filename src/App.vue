@@ -41,6 +41,56 @@
         </div>
       </section>
 
+      <section class="mb-20">
+        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">UFR Sustentable App</h2>
+        <div class="bg-white shadow-lg rounded-xl p-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- App Features and Technologies -->
+            <div>
+              <h3 class="text-2xl font-semibold text-green-700 mb-4">Características y Tecnologías</h3>
+              <ul class="space-y-4">
+                <li v-for="item in appInfo" :key="item.title" class="flex items-start">
+                  <span class="material-symbols-outlined text-green-600 mr-3">{{ item.icon }}</span>
+                  <div>
+                    <h4 class="font-medium text-lg">{{ item.title }}</h4>
+                    <p class="text-sm text-gray-600">{{ item.description }}</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- App Screenshots -->
+            <div>
+              <h3 class="text-2xl font-semibold text-green-700 mb-4">Vistas de la App</h3>
+              <div class="relative">
+                <div class="overflow-hidden rounded-lg">
+                  <div class="flex transition-transform duration-300 ease-in-out" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
+                    <div v-for="(screenshot, index) in appScreenshots" :key="index" class="w-full flex-shrink-0">
+                      <div class="relative w-full max-h-[600px] aspect-[9/16] bg-gray-200 rounded-lg overflow-hidden">
+                        <img
+                            :src="screenshot.image"
+                            :alt="screenshot.alt"
+                            class="w-full h-full object-contain object-center rounded-lg shadow-md"
+                        >
+                      </div>
+                      <p class="mt-2 text-center text-sm text-gray-600">{{ screenshot.description }}</p>
+                    </div>
+                  </div>
+                </div>
+                <button @click="prevSlide" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 shadow-md">
+                  <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+                <button @click="nextSlide" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 shadow-md">
+                  <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
       <process-step></process-step>
 
       <section class="mb-20">
@@ -130,31 +180,65 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import {ref} from 'vue'
 import ThreeModel from "./components/ThreeModel.vue"
 import FeatureItem from "./components/FeatureItem.vue"
 import ProcessStep from "./components/ProcessStep.vue"
 import PlatformItem from "./components/PlatformItem.vue"
 import DownloadButton from "./components/DownloadButton.vue"
 
+const currentSlide = ref(0)
 const selectedTab = ref('user')
 
-const navItems = [
-  { href: "#about", text: "Acerca de" },
-  { href: "#features", text: "Características" },
-  { href: "#download", text: "Descargar" },
+
+const appInfo = [
+  { icon: "login", title: "Inicio de sesión con Google", description: "Autenticación segura con cuentas de Google" },
+  { icon: "map", title: "Mapa interactivo", description: "Localiza puntos de reciclaje en el campus" },
+  { icon: "qr_code_scanner", title: "Escáner QR", description: "Registra actividades de reciclaje" },
+  { icon: "history", title: "Historial de solicitudes", description: "Seguimiento de tus actividades de reciclaje" },
+  { icon: "redeem", title: "Recompensas", description: "Canjea puntos por premios" },
+  { icon: "person", title: "Perfil personalizable", description: "Ajusta la apariencia de la app" },
+  { icon: "code", title: "Kotlin Multiplatform", description: "Desarrollo multiplataforma para Android e iOS" },
+  { icon: "cloud", title: "Firebase", description: "Backend robusto y en tiempo real" },
+  { icon: "palette", title: "Material Design 3", description: "Interfaz moderna y consistente" },
+  { icon: "view_quilt", title: "Jetpack Compose", description: "UI declarativa y eficiente" }
 ]
 
-const features = [
-  { icon: "sensors", title: "Sensores de nivel", description: "Monitoreo preciso del llenado" },
-  { icon: "wifi", title: "Conectividad LoRa", description: "Transmisión eficiente de datos" },
-  { icon: "design_services", title: "Diseño ergonómico", description: "Fácil uso para todos los usuarios" },
-  { icon: "scale", title: "Báscula de peso", description: "Indica peso para medir contenedor de agua y vasos" },
-  { icon: "local_cafe", title: "Capacidad optimizada", description: "Diseñado para vasos de café" },
-  { icon: "battery_charging_full", title: "Batería de larga duración", description: "Litio con configuración 3s6p" },
-  { icon: "local_shipping", title: "Retiro rápido de material reciclado", description: "Diseño modular que facilita la extracción y transporte" },
-  { icon: "local_drink", title: "Lavado de vasos", description: "Limpiador de vasos de alta presión" },
+const appScreenshots = [
+  {
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-uupsza4XpOcOfwgUnpS502CSbdEYmV.png",
+    alt: "Mapa de puntos de reciclaje en el campus",
+    description: "Localiza fácilmente los puntos de reciclaje en todo el campus universitario"
+  },
+  {
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-9mS4p2XXxuO7A2r7s7FatjpEGkRFfk.png",
+    alt: "Historial de solicitudes de reciclaje",
+    description: "Mantén un registro detallado de tus actividades de reciclaje y contribuciones"
+  },
+  {
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-tkAzqI4BxjqVFyD5lnEkoH1hmGdgDP.png",
+    alt: "Pantalla de puntos y recompensas",
+    description: "Visualiza tus puntos acumulados y canjea premios por tus esfuerzos de reciclaje"
+  },
+  {
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TrcpSoEzLVv3k6F8zlX9uWm4f6KqFX.png",
+    alt: "Demostración de realidad aumentada",
+    description: "Reconocimiento Qr por camara"
+  },
+  {
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-sduPIKrzelDDgMZ5Ag3U16VonEicSV.png",
+    alt: "Perfil de usuario y configuración de accesibilidad",
+    description: "Personaliza tu experiencia con opciones de contraste y modo oscuro"
+  },
 ]
+
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % appScreenshots.length
+}
+
+const prevSlide = () => {
+  currentSlide.value = (currentSlide.value - 1 + appScreenshots.length) % appScreenshots.length
+}
 
 
 const userFeatures = [
@@ -169,6 +253,22 @@ const adminFeatures = [
   { icon: "analytics", text: "Estadísticas de uso y eficiencia" },
   { icon: "map", text: "Gestión de rutas de recolección" },
   { icon: "nature", text: "Análisis de impacto ambiental" },
+]
+const features = [
+  { icon: "sensors", title: "Sensores de nivel", description: "Monitoreo preciso del llenado" },
+  { icon: "wifi", title: "Conectividad LoRa", description: "Transmisión eficiente de datos" },
+  { icon: "design_services", title: "Diseño ergonómico", description: "Fácil uso para todos los usuarios" },
+  { icon: "scale", title: "Báscula de peso", description: "Indica peso para medir contenedor de agua y vasos" },
+  { icon: "local_cafe", title: "Capacidad optimizada", description: "Diseñado para vasos de café" },
+  { icon: "battery_charging_full", title: "Batería de larga duración", description: "Litio con configuración 3s6p" },
+  { icon: "local_shipping", title: "Retiro rápido de material reciclado", description: "Diseño modular que facilita la extracción y transporte" },
+  { icon: "local_drink", title: "Lavado de vasos", description: "Limpiador de vasos de alta presión" },
+]
+
+const navItems = [
+  { href: "#about", text: "Acerca de" },
+  { href: "#features", text: "Características" },
+  { href: "#download", text: "Descargar" },
 ]
 
 const platforms = [
@@ -194,5 +294,7 @@ const downloadButtons = [
       'GRAD' 0,
       'opsz' 48
 }
+
+
 </style>
 
