@@ -242,6 +242,24 @@
           <download-button v-for="button in downloadButtons" :key="button.platform" v-bind="button" />
         </div>
       </section>
+
+
+      <section class="mb-20">
+        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Referencias y Documentos</h2>
+        <div class="bg-white shadow-lg rounded-xl p-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div v-for="reference in references" :key="reference.title" class="bg-green-50 rounded-lg p-6 shadow-md transition-transform duration-300 hover:scale-105">
+              <div class="flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-5xl text-green-600">{{ reference.icon }}</span>
+              </div>
+              <h3 class="text-2xl font-bold text-green-800 text-center mb-2">{{ reference.title }}</h3>
+              <p class="text-lg text-green-700 text-center mb-4">{{ reference.description }}</p>
+              <a :href="reference.link" class="text-blue-500 underline text-center block">Ver Documento</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer class="bg-green-800 text-white py-12">
@@ -276,6 +294,58 @@ import PlatformItem from "./components/PlatformItem.vue"
 import DownloadButton from "./components/DownloadButton.vue"
 
 
+const  references = [
+  {
+    icon: 'description',
+    title: 'Resultados UFRO Sustentable',
+    description: 'Informe sobre los resultados del programa de sustentabilidad en la Universidad de La Frontera.',
+    link: 'https://ima.ufro.cl/wp-content/uploads/2022/12/Resultados-UFRO-sustentable.pdf'
+  },
+  {
+    icon: 'description',
+    title: 'Universidad Sustentable - Agosto 2019',
+    description: 'Informe de agosto de 2019 sobre las iniciativas sustentables en la Universidad de La Frontera.',
+    link: 'https://ima.ufro.cl/wp-content/uploads/2022/12/universidad-sustentable-agosto-2019.pdf'
+  },
+  {
+    icon: 'description',
+    title: 'Informe de la UNEP Life Cycle Initiative',
+    description: 'Un informe detallado sobre el ciclo de vida de los vasos de papel.',
+    link: 'https://www.lifecycleinitiative.org/wp-content/uploads/2021/02/UNEP_-LCA-Beverage-Cups-Report_Web.pdf'
+  },
+  {
+    icon: 'description',
+    title: 'Sierra Club - Análisis de Ciclo de Vida',
+    description: 'Recursos educativos sobre la huella de carbono y análisis de ciclo de vida.',
+    link: 'https://www.sierraclub.org'
+  },
+  {
+    icon: 'description',
+    title: 'Redciclach - Smart campus Reciclaje con contenedores inteligentes',
+    description: 'Proyecto de reciclaje con contenedores inteligentes en la Universidad de Santiago de Chile.',
+    link: 'https://www.metared.org/content/dam/metared/pdf/finalistas-2024/Redciclach%20Smart%20campus%20Reciclaje%20con%20contenedores%20inteligentes%20en%20la%20Universidad%20de%20Santiago%20de%20Chile.pdf'
+  },
+  {
+    icon: 'description',
+    title: 'Plan de gestión de residuos USACH',
+    description: 'Informe sobre el plan de gestión de residuos en la Universidad de Santiago de Chile.',
+    link: 'https://pei.usach.cl/wp-content/uploads/2023/10/Informe-Plan-de-gestion-de-residuos-USACH-Realiza.pdf'
+  },
+  {
+    icon: 'description',
+    title: 'Informe de Transparencia Activa USACH 2021',
+    description: 'Informe detallado sobre transparencia activa en la Universidad de Santiago de Chile.',
+    link: 'https://www.transparenciaactiva.usach.cl/sites/default/files/paginas/6256-2021.pdf'
+  },
+  {
+    icon: 'description',
+    title: 'Informe Ambiental - Ciudad de Temuco',
+    description: 'Este documento aborda el análisis ambiental de Temuco, incluyendo temas como calidad del aire, gestión de residuos, y conservación de ecosistemas locales.',
+    link: 'https://www.temuco.cl/wp-content/uploads/2022/04/Cap7-Ambiental.pdf'
+  }
+]
+
+
 const studyIndicators = [
   {
     icon: "recycling",
@@ -285,7 +355,7 @@ const studyIndicators = [
   },
   {
     icon: "group",
-    value: "18%",
+    value: "65%",
     title: "Participación Estudiantil",
     description: "Porcentaje de estudiantes que han utilizado el sistema al menos una vez"
   },
@@ -410,7 +480,7 @@ const userFeatures = [
 const adminFeatures = [
   { icon: "monitoring", text: "Monitoreo en tiempo real de los recolectores" },
   { icon: "analytics", text: "Estadísticas de uso y eficiencia" },
-  { icon: "map", text: "Gestión de rutas de recolección" },
+  { icon: "map", text: "Gestión de puntos de recolección" },
   { icon: "nature", text: "Análisis de impacto ambiental" },
 ]
 const features = [
