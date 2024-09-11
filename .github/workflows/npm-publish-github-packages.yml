@@ -45,7 +45,6 @@ jobs:
       - name: Clean up node_modules and pnpm-lock.yaml
         run: |
           rm -rf node_modules
-          rm -f pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install
