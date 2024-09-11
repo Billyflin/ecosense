@@ -81,6 +81,8 @@
       <DiagramaRecoleccion/>
 
 
+      <IncentivesSection/>
+
 
       <section id="about" class="mb-20">
         <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Recolector Inteligente de Vasos de Café</h2>
@@ -345,8 +347,8 @@ import PlatformItem from "./components/PlatformItem.vue"
 import DownloadButton from "./components/DownloadButton.vue"
 import MermaidContenedor from "./Mermaid.vue";
 import AppUserFlowDiagram from "./AppUserFlowDiagram.vue";
-import DiagramaReecoleccion from "./DiagramaReecoleccion.vue";
 import DiagramaRecoleccion from "./DiagramaReecoleccion.vue";
+import IncentivesSection from "./IncentivesSection.vue";
 
 const budgetItems = [
   { name: 'Bomba de agua de alta presión', price: 17000, quantity: 1 },
