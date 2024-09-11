@@ -33,13 +33,14 @@ jobs:
         with:
           node-version: "20"
 
-      # Establecer la variable SHELL y luego instalar pnpm
+      # Instalar pnpm manualmente y asegurarlo en el PATH
       - name: Install pnpm
         run: |
-          export SHELL="/bin/bash"
           curl -fsSL https://get.pnpm.io/install.sh | sh -
-          export PNPM_HOME="$HOME/.local/share/pnpm"
-          export PATH="$PNPM_HOME:$PATH"
+          export PNPM_HOME="${HOME}/.local/share/pnpm"
+          export PATH="${PNPM_HOME}:${PATH}"
+          echo "PNPM_HOME=${PNPM_HOME}" >> $GITHUB_ENV
+          echo "PATH=${PNPM_HOME}:${PATH}" >> $GITHUB_ENV
 
       - name: Verify pnpm installation
         run: pnpm --version
@@ -80,4 +81,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
