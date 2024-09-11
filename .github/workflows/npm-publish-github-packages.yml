@@ -32,13 +32,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "pnpm"
 
-      # Instalar pnpm manualmente
+      # Instalar pnpm directamente desde el script oficial
       - name: Install pnpm
         run: |
-          npm install -g pnpm
-          export PATH="$(npm bin -g):$PATH"
+          curl -fsSL https://get.pnpm.io/install.sh | sh -
+          export PNPM_HOME="$HOME/.local/share/pnpm"
+          export PATH="$PNPM_HOME:$PATH"
 
       - name: Verify pnpm installation
         run: pnpm --version
