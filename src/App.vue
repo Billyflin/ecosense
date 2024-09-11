@@ -28,27 +28,27 @@
           </p>
           <h3 class="text-2xl font-semibold text-green-700 mb-4">Matriz de Valor</h3>
           <div class="overflow-x-auto">
-            <table class="min-w-full bg-white border border-gray-300">
-              <thead>
+            <table class="min-w-full bg-white border border-gray-300 rounded-lg overflow-hidden">
+              <thead class="bg-green-200 text-green-800">
               <tr>
-                <th class="py-2 px-4 border-b">Criterio</th>
-                <th class="py-2 px-4 border-b">Vasos de Café</th>
-                <th class="py-2 px-4 border-b">Aceite</th>
-                <th class="py-2 px-4 border-b">Baterías</th>
+                <th class="py-3 px-6 text-left">Criterio</th>
+                <th class="py-3 px-6 text-center">Vasos de Café</th>
+                <th class="py-3 px-6 text-center">Aceite</th>
+                <th class="py-3 px-6 text-center">Baterías</th>
               </tr>
               </thead>
               <tbody>
-              <tr v-for="(row, index) in matrixData" :key="index">
-                <td class="py-2 px-4 border-b font-medium">{{ row.criteria }}</td>
-                <td class="py-2 px-4 border-b text-center" :class="getScoreClass(row.coffee)">{{ row.coffee }}</td>
-                <td class="py-2 px-4 border-b text-center" :class="getScoreClass(row.oil)">{{ row.oil }}</td>
-                <td class="py-2 px-4 border-b text-center" :class="getScoreClass(row.batteries)">{{ row.batteries }}</td>
+              <tr v-for="(row, index) in matrixData" :key="index" class="odd:bg-gray-50 even:bg-gray-100">
+                <td class="py-3 px-6 text-left font-medium text-gray-700">{{ row.criteria }}</td>
+                <td class="py-3 px-6 text-center" :class="getScoreClass(row.coffee)">{{ row.coffee }}</td>
+                <td class="py-3 px-6 text-center" :class="getScoreClass(row.oil)">{{ row.oil }}</td>
+                <td class="py-3 px-6 text-center" :class="getScoreClass(row.batteries)">{{ row.batteries }}</td>
               </tr>
-              <tr class="font-semibold">
-                <td class="py-2 px-4 border-b text-center">Resultado Total</td>
-                <td class="py-2 px-4 border-b text-center">{{ totalScores.coffee }}</td>
-                <td class="py-2 px-4 border-b text-center">{{ totalScores.oil }}</td>
-                <td class="py-2 px-4 border-b text-center">{{ totalScores.batteries }}</td>
+              <tr class="bg-blue-100 text-blue-800 font-semibold">
+                <td class="py-3 px-6 text-center">Resultado Total</td>
+                <td class="py-3 px-6 text-center">{{ totalScores.coffee }}</td>
+                <td class="py-3 px-6 text-center">{{ totalScores.oil }}</td>
+                <td class="py-3 px-6 text-center">{{ totalScores.batteries }}</td>
               </tr>
               </tbody>
             </table>
@@ -58,7 +58,7 @@
             <h4 class="text-xl font-semibold text-green-700 mb-2">¿Por qué empezamos con vasos de café?</h4>
             <ul class="list-disc list-inside space-y-2 text-gray-700">
               <li>Alta frecuencia de uso en el campus universitario</li>
-              <li>Desafío de implementación</li>
+              <li>Facilidad de implementación y recolección</li>
               <li>Impacto visual inmediato en la comunidad</li>
               <li>Reto significativo en términos de innovación, impulsando nuevas estrategias de reciclaje</li>
             </ul>
@@ -71,6 +71,8 @@
           </div>
         </div>
       </section>
+
+
       <section id="about" class="mb-20">
         <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Acerca de EcoSense</h2>
         <div class="grid gap-8 md:grid-cols-2">
