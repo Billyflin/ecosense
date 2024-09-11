@@ -19,7 +19,7 @@
       </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-12">
 
 
 
@@ -78,13 +78,16 @@
         </div>
       </section>
 
+      <DiagramaRecoleccion/>
+
+
 
       <section id="about" class="mb-20">
-        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Acerca de EcoSense</h2>
+        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Recolector Inteligente de Vasos de Café</h2>
         <div class="grid gap-8 md:grid-cols-2">
           <div class="bg-white shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:scale-105">
             <div class="p-6">
-              <h3 class="text-2xl font-semibold mb-3 text-green-700">Recolector Inteligente de Vasos de Café</h3>
+              <h3 class="text-2xl font-semibold mb-3 text-green-700">Modelo 3D</h3>
               <p class="text-gray-600 mb-4">Solución innovadora para la gestión de residuos</p>
             </div>
             <div class="h-64 bg-gray-100">
@@ -99,13 +102,18 @@
           </div>
         </div>
       </section>
+          <mermaid-contenedor/>
+
+
+
 
                       <section class="mb-20">
         <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Eco Sense App(ex Ufro Sustentable)</h2>
         <div class="bg-white shadow-lg rounded-xl p-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
             <!-- App Features and Technologies -->
-            <div>
+            <div class="col-span-1 lg:col-span-1">
               <h3 class="text-2xl font-semibold text-green-700 mb-4">Características y Tecnologías</h3>
               <ul class="space-y-4">
                 <li v-for="item in appInfo" :key="item.title" class="flex items-start">
@@ -119,7 +127,7 @@
             </div>
 
             <!-- App Screenshots -->
-            <div>
+            <div class="col-span-1 lg:col-span-1">
               <h3 class="text-2xl font-semibold text-green-700 mb-4">Vistas de la App</h3>
               <div class="relative">
                 <div class="overflow-hidden rounded-lg">
@@ -144,9 +152,18 @@
                 </button>
               </div>
             </div>
+
+            <!-- User Flow Diagram -->
+            <div class="col-span-1 lg:col-span-1">
+              <h3 class="text-2xl font-semibold text-green-700 mb-4">Flujo de Usuario en la App</h3>
+              <AppUserFlowDiagram />
+            </div>
+
           </div>
         </div>
       </section>
+
+
 
       <section class="mb-20">
         <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Metas</h2>
@@ -180,6 +197,9 @@
 
 
       <process-step></process-step>
+
+
+
 
       <section class="mb-20">
         <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Aplicación EcoSense</h2>
@@ -323,6 +343,10 @@ import FeatureItem from "./components/FeatureItem.vue"
 import ProcessStep from "./components/ProcessStep.vue"
 import PlatformItem from "./components/PlatformItem.vue"
 import DownloadButton from "./components/DownloadButton.vue"
+import MermaidContenedor from "./Mermaid.vue";
+import AppUserFlowDiagram from "./AppUserFlowDiagram.vue";
+import DiagramaReecoleccion from "./DiagramaReecoleccion.vue";
+import DiagramaRecoleccion from "./DiagramaReecoleccion.vue";
 
 const budgetItems = [
   { name: 'Bomba de agua de alta presión', price: 17000, quantity: 1 },
