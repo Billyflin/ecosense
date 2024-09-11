@@ -20,6 +20,57 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section class="mb-20">
+        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Nuestra Elección: Reciclaje de Vasos de Café</h2>
+        <div class="bg-white shadow-lg rounded-xl p-8">
+          <p class="text-lg text-gray-700 mb-6">
+            En EcoSense, decidimos centrar nuestro primer esfuerzo de reciclaje en los vasos de café. A pesar de que otras opciones como el aceite o las baterías pueden parecer más urgentes en algunos aspectos, optamos por los vasos de café debido al desafío que presenta en términos de innovación. Este reto nos permite no solo implementar una solución efectiva, sino también desarrollar y probar nuevas estrategias de reciclaje que puedan ser adaptadas a otros materiales en el futuro.
+          </p>
+          <h3 class="text-2xl font-semibold text-green-700 mb-4">Matriz de Valor</h3>
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300">
+              <thead>
+              <tr>
+                <th class="py-2 px-4 border-b">Criterio</th>
+                <th class="py-2 px-4 border-b">Vasos de Café</th>
+                <th class="py-2 px-4 border-b">Aceite</th>
+                <th class="py-2 px-4 border-b">Baterías</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr v-for="(row, index) in matrixData" :key="index">
+                <td class="py-2 px-4 border-b font-medium">{{ row.criteria }}</td>
+                <td class="py-2 px-4 border-b text-center" :class="getScoreClass(row.coffee)">{{ row.coffee }}</td>
+                <td class="py-2 px-4 border-b text-center" :class="getScoreClass(row.oil)">{{ row.oil }}</td>
+                <td class="py-2 px-4 border-b text-center" :class="getScoreClass(row.batteries)">{{ row.batteries }}</td>
+              </tr>
+              <tr class="font-semibold">
+                <td class="py-2 px-4 border-b text-center">Resultado Total</td>
+                <td class="py-2 px-4 border-b text-center">{{ totalScores.coffee }}</td>
+                <td class="py-2 px-4 border-b text-center">{{ totalScores.oil }}</td>
+                <td class="py-2 px-4 border-b text-center">{{ totalScores.batteries }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-sm text-gray-600 mt-4">Escala: 1 (Bajo) - 3 (Alto)</p>
+          <div class="mt-6">
+            <h4 class="text-xl font-semibold text-green-700 mb-2">¿Por qué empezamos con vasos de café?</h4>
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+              <li>Alta frecuencia de uso en el campus universitario</li>
+              <li>Desafío de implementación</li>
+              <li>Impacto visual inmediato en la comunidad</li>
+              <li>Reto significativo en términos de innovación, impulsando nuevas estrategias de reciclaje</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <h4 class="text-xl font-semibold text-green-700 mb-2">Planes Futuros</h4>
+            <p class="text-gray-700">
+              Aunque comenzamos con vasos de café, nuestro objetivo es expandir el ecosistema de reciclaje para incluir aceite y baterías en el futuro. Esto nos permitirá abordar una gama más amplia de desafíos de sostenibilidad y maximizar nuestro impacto positivo en el medio ambiente.
+            </p>
+          </div>
+        </div>
+      </section>
       <section id="about" class="mb-20">
         <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Acerca de EcoSense</h2>
         <div class="grid gap-8 md:grid-cols-2">
@@ -42,7 +93,7 @@
       </section>
 
       <section class="mb-20">
-        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">UFR Sustentable App</h2>
+        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Eco Sense App(ex Ufro Sustentable)</h2>
         <div class="bg-white shadow-lg rounded-xl p-8">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- App Features and Technologies -->
@@ -165,7 +216,7 @@
                 alt="Logo de EcoSense"
                 class="w-40 mb-4"
             />
-            <p class="text-lg">&copy; 2024 EcoSense. Todos los derechos reservados.</p>
+            <p class="text-lg">&copy; 2024 EcoSense. Sin derechos.</p>
           </div>
           <div>
             <a href="https://github.com/Billyflin/UfroSustentableApp" target="_blank" rel="noopener noreferrer" class="text-white hover:text-green-200 transition-colors flex items-center text-lg">
@@ -180,7 +231,7 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {computed, ref} from 'vue'
 import ThreeModel from "./components/ThreeModel.vue"
 import FeatureItem from "./components/FeatureItem.vue"
 import ProcessStep from "./components/ProcessStep.vue"
@@ -190,6 +241,33 @@ import DownloadButton from "./components/DownloadButton.vue"
 const currentSlide = ref(0)
 const selectedTab = ref('user')
 
+const totalScores = computed(() => {
+  return {
+    coffee: matrixData.reduce((sum, row) => sum + row.coffee, 0),
+    oil: matrixData.reduce((sum, row) => sum + row.oil, 0),
+    batteries: matrixData.reduce((sum, row) => sum + row.batteries, 0)
+  };
+});
+
+const matrixData = [
+  { criteria: "Frecuencia de uso", coffee: 3, oil: 2, batteries: 1 },
+  { criteria: "Facilidad de implementación", coffee: 1, oil: 2, batteries: 3 },
+  { criteria: "Impacto ambiental", coffee: 1, oil: 2, batteries: 3 },
+  { criteria: "Visibilidad en el campus", coffee: 3, oil: 1, batteries: 2 },
+  // Nuevas filas basadas en la tabla
+  { criteria: "Volumen", coffee: 2, oil: 1, batteries: 3 },
+  { criteria: "Facilidad de recolección", coffee: 1, oil: 2, batteries: 3 },
+  { criteria: "Costo de construcción(menor costo)", coffee: 2, oil: 1, batteries: 3 },
+  { criteria: "Innovación", coffee: 3, oil: 2, batteries: 1 },
+  { criteria: "Transporte", coffee: 1, oil: 2, batteries: 3 }
+];
+
+
+const getScoreClass = (score) => {
+  if (score === 3) return 'bg-green-100'
+  if (score === 2) return 'bg-yellow-100'
+  return 'bg-red-100'
+}
 
 const appInfo = [
   { icon: "login", title: "Inicio de sesión con Google", description: "Autenticación segura con cuentas de Google" },
