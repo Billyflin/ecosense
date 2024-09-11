@@ -99,36 +99,6 @@
           </div>
         </div>
       </section>
-      <section class="mb-20">
-        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Presupuesto del Contenedor de Vasos</h2>
-        <div class="bg-white shadow-lg rounded-xl p-8">
-          <table class="min-w-full bg-white border-collapse">
-            <thead>
-            <tr>
-              <th class="py-2 px-4 border-b text-left text-green-800">Nombre</th>
-              <th class="py-2 px-4 border-b text-left text-green-800">Precio</th>
-              <th class="py-2 px-4 border-b text-left text-green-800">Cantidad</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="item in budgetItems" :key="item.name" class="border-t">
-              <td class="py-2 px-4">{{ item.name }}</td>
-              <td class="py-2 px-4">CLP {{ item.price.toLocaleString('es-CL') }}</td>
-              <td class="py-2 px-4">{{ item.quantity }}</td>
-            </tr>
-            </tbody>
-            <tfoot>
-            <tr>
-              <td colspan="2" class="py-2 px-4 text-right font-bold text-green-800">Total Estimado:</td>
-              <td colspan="2" class="py-2 px-4 text-left font-bold text-green-800">CLP {{ totalCost }}</td>
-            </tr>
-            </tfoot>
-          </table>
-          <p class="text-sm text-gray-600 mt-4 text-center">
-            *Los precios mostrados son estimados y pueden variar.
-          </p>
-        </div>
-      </section>
 
                       <section class="mb-20">
         <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Eco Sense App(ex Ufro Sustentable)</h2>
@@ -272,6 +242,37 @@
           <download-button v-for="button in downloadButtons" :key="button.platform" v-bind="button" />
         </div>
       </section>
+      <section class="mb-20">
+        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Presupuesto del Contenedor de Vasos</h2>
+        <div class="bg-white shadow-lg rounded-xl p-8">
+          <table class="min-w-full bg-white border-collapse">
+            <thead>
+            <tr>
+              <th class="py-2 px-4 border-b text-left text-green-800">Nombre</th>
+              <th class="py-2 px-4 border-b text-left text-green-800">Precio</th>
+              <th class="py-2 px-4 border-b text-left text-green-800">Cantidad</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="item in budgetItems" :key="item.name" class="border-t">
+              <td class="py-2 px-4">{{ item.name }}</td>
+              <td class="py-2 px-4">CLP {{ item.price.toLocaleString('es-CL') }}</td>
+              <td class="py-2 px-4">{{ item.quantity }}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <td colspan="2" class="py-2 px-4 text-right font-bold text-green-800">Total Estimado:</td>
+              <td colspan="2" class="py-2 px-4 text-left font-bold text-green-800">CLP {{ totalCost }}</td>
+            </tr>
+            </tfoot>
+          </table>
+          <p class="text-sm text-gray-600 mt-4 text-center">
+            *Los precios mostrados son estimados y pueden variar.
+          </p>
+        </div>
+      </section>
+
 
 
       <section class="mb-20">
