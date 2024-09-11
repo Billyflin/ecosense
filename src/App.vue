@@ -20,6 +20,12 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+
+
+
+
+
       <section class="mb-20">
         <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Nuestra Elección: Reciclaje de Vasos de Café</h2>
         <div class="bg-white shadow-lg rounded-xl p-8">
@@ -142,6 +148,35 @@
         </div>
       </section>
 
+      <section class="mb-20">
+        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Metas</h2>
+        <div class="bg-white shadow-lg rounded-xl p-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div v-for="indicator in studyIndicators" :key="indicator.title" class="bg-green-50 rounded-lg p-6 shadow-md transition-transform duration-300 hover:scale-105">
+              <div class="flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-5xl text-green-600">{{ indicator.icon }}</span>
+              </div>
+              <h3 class="text-2xl font-bold text-green-800 text-center mb-2">{{ indicator.value }}</h3>
+              <p class="text-lg text-green-700 text-center mb-4">{{ indicator.title }}</p>
+              <p class="text-sm text-gray-600 text-center">{{ indicator.description }}</p>
+            </div>
+          </div>
+          <div class="mt-8">
+            <h3 class="text-2xl font-semibold text-green-700 mb-4">Impacto Ambiental Estimado</h3>
+            <div class="bg-green-50 rounded-lg p-6 shadow-md">
+              <div class="flex flex-wrap justify-around">
+                <div v-for="impact in environmentalImpact" :key="impact.title" class="text-center mb-4">
+                  <p class="text-3xl font-bold text-green-800">{{ impact.value }}</p>
+                  <p class="text-lg text-green-700">{{ impact.title }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mt-4 text-center">
+            *Cada vaso de papel pesa en promedio 11 gramos y genera aproximadamente 0.06 kg de CO2 durante su ciclo de vida. Datos basados en estudios del informe de la <a href="https://www.lifecycleinitiative.org/wp-content/uploads/2021/02/UNEP_-LCA-Beverage-Cups-Report_Web.pdf" class="text-blue-500 underline">UNEP Life Cycle Initiative</a> y <a href="https://www.sierraclub.org" class="text-blue-500 underline">Sierra Club</a>.
+          </p>
+        </div>
+      </section>
 
 
       <process-step></process-step>
@@ -239,6 +274,50 @@ import FeatureItem from "./components/FeatureItem.vue"
 import ProcessStep from "./components/ProcessStep.vue"
 import PlatformItem from "./components/PlatformItem.vue"
 import DownloadButton from "./components/DownloadButton.vue"
+
+
+const studyIndicators = [
+  {
+    icon: "recycling",
+    value: "15,000+",
+    title: "Vasos Reciclados",
+    description: "Número de vasos de café reciclados desde el inicio del programa"
+  },
+  {
+    icon: "group",
+    value: "18%",
+    title: "Participación Estudiantil",
+    description: "Porcentaje de estudiantes que han utilizado el sistema al menos una vez"
+  },
+  {
+    icon: "trending_up",
+    value: "35%",
+    title: "Aumento en Reciclaje",
+    description: "Incremento en la tasa general de reciclaje en el campus"
+  },
+  {
+    icon: "eco",
+    value: "5",
+    title: "Nuevos Puntos de Reciclaje",
+    description: "Puntos de recolección adicionales instalados debido a la alta demanda"
+  },
+]
+
+const environmentalImpact = [
+  {
+    value: "0.9 toneladas",
+    title: "CO₂ Evitado"
+  },
+  {
+    value: "165 kg",
+    title: "Papel No Producido"
+  },
+  {
+    value: "8 Vasos Diarios",
+    title: "Para lograr objetivo anual"
+  }
+]
+
 
 const currentSlide = ref(0)
 const selectedTab = ref('user')

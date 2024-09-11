@@ -1,5 +1,4 @@
 <template>
-
   <section id="features" class="mb-16">
     <h2 class="text-3xl font-bold text-green-800 mb-6">Cómo Funciona</h2>
     <div class="bg-white shadow-md rounded-lg p-6">
