@@ -33,14 +33,9 @@ jobs:
         with:
           node-version: "20"
 
-      # Instalar pnpm manualmente y asegurarlo en el PATH
+      # Instalar pnpm usando npm
       - name: Install pnpm
-        run: |
-          curl -fsSL https://get.pnpm.io/install.sh | sh -
-          export PNPM_HOME="${HOME}/.local/share/pnpm"
-          export PATH="${PNPM_HOME}:${PATH}"
-          echo "PNPM_HOME=${PNPM_HOME}" >> $GITHUB_ENV
-          echo "PATH=${PNPM_HOME}:${PATH}" >> $GITHUB_ENV
+        run: npm install -g pnpm
 
       - name: Verify pnpm installation
         run: pnpm --version
