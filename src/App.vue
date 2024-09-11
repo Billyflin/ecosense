@@ -33,72 +33,57 @@
           <div class="bg-white shadow-md rounded-lg p-6">
             <h3 class="text-xl font-semibold mb-4">Características Principales</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Característica: Sensores de nivel -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-3">sensors</span>
+                <span class="material-symbols-outlined text-green-500 mr-3">sensors</span>
                 <div>
                   <h4 class="font-medium">Sensores de nivel</h4>
                   <p class="text-sm text-gray-600">Monitoreo preciso del llenado</p>
                 </div>
               </div>
-
-              <!-- Característica: Conectividad LoRa -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-3">wifi</span>
+                <span class="material-symbols-outlined text-green-500 mr-3">wifi</span>
                 <div>
                   <h4 class="font-medium">Conectividad LoRa</h4>
                   <p class="text-sm text-gray-600">Transmisión eficiente de datos</p>
                 </div>
               </div>
-
-              <!-- Característica: Diseño ergonómico -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-3">design_services</span>
+                <span class="material-symbols-outlined text-green-500 mr-3">design_services</span>
                 <div>
                   <h4 class="font-medium">Diseño ergonómico</h4>
                   <p class="text-sm text-gray-600">Fácil uso para todos los usuarios</p>
                 </div>
               </div>
-
-              <!-- Característica: Báscula de peso -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-3">scale</span>
+                <span class="material-symbols-outlined text-green-500 mr-3">scale</span>
                 <div>
                   <h4 class="font-medium">Báscula de peso</h4>
                   <p class="text-sm text-gray-600">Indica peso para medir contenedor de agua y vasos</p>
                 </div>
               </div>
-
-              <!-- Característica: Capacidad optimizada -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-3">local_cafe</span>
+                <span class="material-symbols-outlined text-green-500 mr-3">local_cafe</span>
                 <div>
                   <h4 class="font-medium">Capacidad optimizada</h4>
                   <p class="text-sm text-gray-600">Diseñado para vasos de café</p>
                 </div>
               </div>
-
-              <!-- Característica: Batería de larga duración -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-3">battery_charging_full</span>
+                <span class="material-symbols-outlined text-green-500 mr-3">battery_charging_full</span>
                 <div>
                   <h4 class="font-medium">Batería de larga duración</h4>
                   <p class="text-sm text-gray-600">Litio con configuración 3s6p</p>
                 </div>
               </div>
-
-              <!-- Característica: Retiro rápido de material reciclado -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-3">local_shipping</span>
+                <span class="material-symbols-outlined text-green-500 mr-3">local_shipping</span>
                 <div>
                   <h4 class="font-medium">Retiro rápido de material reciclado</h4>
                   <p class="text-sm text-gray-600">Diseño modular que facilita la extracción y transporte de material reciclado</p>
                 </div>
               </div>
-
-              <!-- Característica: Lavado de vasos -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-3">local_drink</span>
+                <span class="material-symbols-outlined text-green-500 mr-3">local_drink</span>
                 <div>
                   <h4 class="font-medium">Lavado de vasos</h4>
                   <p class="text-sm text-gray-600">Limpiador de vasos de alta presión</p>
@@ -106,7 +91,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -115,43 +99,43 @@
         <div class="bg-white shadow-md rounded-lg p-6">
           <div class="flex flex-wrap justify-center items-center gap-4">
             <div class="flex flex-col items-center text-center w-40">
-              <span class="material-icons text-4xl text-green-600 mb-2">recycling</span>
+              <span class="material-symbols-outlined text-4xl text-green-600 mb-2">recycling</span>
               <h3 class="font-semibold mb-1">Recolector Inteligente</h3>
               <p class="text-sm text-gray-600">Recopila datos de uso y llenado</p>
             </div>
             <div class="flex flex-col items-center">
-              <span class="material-icons text-gray-400">arrow_forward</span>
+              <span class="material-symbols-outlined text-gray-400">arrow_forward</span>
               <span class="text-xs text-gray-500">LoRa</span>
             </div>
             <div class="flex flex-col items-center text-center w-40">
-              <span class="material-icons text-4xl text-green-600 mb-2">router</span>
+              <span class="material-symbols-outlined text-4xl text-green-600 mb-2">router</span>
               <h3 class="font-semibold mb-1">Gateway LoRa</h3>
               <p class="text-sm text-gray-600">Recibe datos de múltiples recolectores</p>
             </div>
             <div class="flex flex-col items-center">
-              <span class="material-icons text-gray-400">arrow_forward</span>
+              <span class="material-symbols-outlined text-gray-400">arrow_forward</span>
               <span class="text-xs text-gray-500">Internet</span>
             </div>
             <div class="flex flex-col items-center text-center w-40">
-              <span class="material-icons text-4xl text-green-600 mb-2">dns</span>
+              <span class="material-symbols-outlined text-4xl text-green-600 mb-2">dns</span>
               <h3 class="font-semibold mb-1">Servidor Central</h3>
               <p class="text-sm text-gray-600">Procesa y agrega datos</p>
             </div>
             <div class="flex flex-col items-center">
-              <span class="material-icons text-gray-400">arrow_forward</span>
+              <span class="material-symbols-outlined text-gray-400">arrow_forward</span>
               <span class="text-xs text-gray-500">API</span>
             </div>
             <div class="flex flex-col items-center text-center w-40">
-              <span class="material-icons text-4xl text-green-600 mb-2">cloud_upload</span>
+              <span class="material-symbols-outlined text-4xl text-green-600 mb-2">cloud_upload</span>
               <h3 class="font-semibold mb-1">Firebase</h3>
               <p class="text-sm text-gray-600">Almacena y distribuye información</p>
             </div>
             <div class="flex flex-col items-center">
-              <span class="material-icons text-gray-400">arrow_forward</span>
+              <span class="material-symbols-outlined text-gray-400">arrow_forward</span>
               <span class="text-xs text-gray-500">SDK</span>
             </div>
             <div class="flex flex-col items-center text-center w-40">
-              <span class="material-icons text-4xl text-green-600 mb-2">devices</span>
+              <span class="material-symbols-outlined text-4xl text-green-600 mb-2">devices</span>
               <h3 class="font-semibold mb-1">App EcoSense</h3>
               <p class="text-sm text-gray-600">Interfaz para usuarios y administradores</p>
             </div>
@@ -162,67 +146,75 @@
       <section class="mb-16">
         <h2 class="text-3xl font-bold text-green-800 mb-6">Aplicación EcoSense</h2>
         <div>
-          <div class="grid w-full grid-cols-2">
-            <button @click="selectedTab = 'user'" :class="[
-              'p-4 transition-colors duration-200',
-              selectedTab === 'user' ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-green-100'
-            ]">
+          <div class="grid w-full grid-cols-2 rounded-t-lg overflow-hidden">
+            <button
+                @click="selectedTab = 'user'"
+                :class="[
+                'p-4 transition-colors duration-200 font-semibold',
+                selectedTab === 'user' ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-green-100'
+              ]"
+            >
               Funciones de Usuario
             </button>
-            <button @click="selectedTab = 'admin'" :class="[
-              'p-4 transition-colors duration-200',
-              selectedTab === 'admin' ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-green-100'
-            ]">
+            <button
+                @click="selectedTab = 'admin'"
+                :class="[
+                'p-4 transition-colors duration-200 font-semibold',
+                selectedTab === 'admin' ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-green-100'
+              ]"
+            >
               Funciones de Administrador
             </button>
           </div>
-          <div v-if="selectedTab === 'user'" class="bg-white shadow-md rounded-lg p-6 mt-4">
-            <h3 class="flex items-center text-xl font-semibold mb-4">
-              <span class="material-icons mr-2 text-green-500">person</span>
-              Funcionalidades para Usuarios
-            </h3>
-            <ul class="space-y-3">
-              <li class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">star</span>
-                <span>Ver puntuación actual de reciclaje</span>
-              </li>
-              <li class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">redeem</span>
-                <span>Lista de beneficios obtenidos</span>
-              </li>
-              <li class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">history</span>
-                <span>Historial personal de reciclaje</span>
-              </li>
-              <li class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">eco</span>
-                <span>Consejos para reducir el uso de desechables</span>
-              </li>
-            </ul>
-          </div>
-          <div v-if="selectedTab === 'admin'" class="bg-white shadow-md rounded-lg p-6 mt-4">
-            <h3 class="flex items-center text-xl font-semibold mb-4">
-              <span class="material-icons mr-2 text-green-500">admin_panel_settings</span>
-              Panel de Administración
-            </h3>
-            <ul class="space-y-3">
-              <li class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">monitoring</span>
-                <span>Monitoreo en tiempo real de los recolectores</span>
-              </li>
-              <li class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">analytics</span>
-                <span>Estadísticas de uso y eficiencia</span>
-              </li>
-              <li class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">map</span>
-                <span>Gestión de rutas de recolección</span>
-              </li>
-              <li class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">nature</span>
-                <span>Análisis de impacto ambiental</span>
-              </li>
-            </ul>
+          <div class="bg-white shadow-md rounded-b-lg p-6">
+            <div v-if="selectedTab === 'user'">
+              <h3 class="flex items-center text-xl font-semibold mb-4">
+                <span class="material-symbols-outlined mr-2 text-green-500">person</span>
+                Funcionalidades para Usuarios
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <span class="material-symbols-outlined text-green-500 mr-2">star</span>
+                  <span>Ver puntuación actual de reciclaje</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="material-symbols-outlined text-green-500 mr-2">redeem</span>
+                  <span>Lista de beneficios obtenidos</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="material-symbols-outlined text-green-500 mr-2">history</span>
+                  <span>Historial personal de reciclaje</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="material-symbols-outlined text-green-500 mr-2">eco</span>
+                  <span>Consejos para reducir el uso de desechables</span>
+                </li>
+              </ul>
+            </div>
+            <div v-if="selectedTab === 'admin'">
+              <h3 class="flex items-center text-xl font-semibold mb-4">
+                <span class="material-symbols-outlined mr-2 text-green-500">admin_panel_settings</span>
+                Panel de Administración
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <span class="material-symbols-outlined text-green-500 mr-2">monitoring</span>
+                  <span>Monitoreo en tiempo real de los recolectores</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="material-symbols-outlined text-green-500 mr-2">analytics</span>
+                  <span>Estadísticas de uso y eficiencia</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="material-symbols-outlined text-green-500 mr-2">map</span>
+                  <span>Gestión de rutas de recolección</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="material-symbols-outlined text-green-500 mr-2">nature</span>
+                  <span>Análisis de impacto ambiental</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -232,15 +224,15 @@
         <div class="bg-white shadow-md rounded-lg p-6">
           <div class="flex justify-center space-x-8">
             <div class="text-center">
-              <span class="material-icons text-5xl text-green-600">android</span>
+              <span class="material-symbols-outlined text-5xl text-green-600">android</span>
               <p>Android</p>
             </div>
             <div class="text-center">
-              <span class="material-icons text-5xl text-blue-500">phone_iphone</span>
+              <span class="material-symbols-outlined text-5xl text-blue-500">phone_iphone</span>
               <p>iOS</p>
             </div>
             <div class="text-center">
-              <span class="material-icons text-5xl text-gray-700">desktop_windows</span>
+              <span class="material-symbols-outlined text-5xl text-gray-700">desktop_windows</span>
               <p>Windows (Nativo)</p>
             </div>
           </div>
@@ -252,15 +244,15 @@
         <p class="mb-6 text-lg text-green-600">Descarga la aplicación y sé parte del cambio hacia un campus más sostenible.</p>
         <div class="flex flex-wrap justify-center gap-4">
           <button class="bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg flex items-center transition-colors duration-200 transform hover:scale-105">
-            <span class="material-icons mr-2">android</span>
+            <span class="material-symbols-outlined mr-2">android</span>
             Descargar para Android
           </button>
           <button class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg flex items-center transition-colors duration-200 transform hover:scale-105">
-            <span class="material-icons mr-2">phone_iphone</span>
+            <span class="material-symbols-outlined mr-2">phone_iphone</span>
             Descargar para iOS
           </button>
           <button class="bg-gray-700 hover:bg-gray-800 text-white py-3 px-6 rounded-lg flex items-center transition-colors duration-200 transform hover:scale-105">
-            <span class="material-icons mr-2">desktop_windows</span>
+            <span class="material-symbols-outlined mr-2">desktop_windows</span>
             Descargar para Windows
           </button>
         </div>
@@ -280,7 +272,7 @@
           </div>
           <div>
             <a href="https://github.com/Billyflin/UfroSustentableApp" target="_blank" rel="noopener noreferrer" class="text-white hover:text-green-200 transition-colors flex items-center">
-              <span class="material-icons mr-2">code</span>
+              <span class="material-symbols-outlined mr-2">code</span>
               Ver en GitHub
             </a>
           </div>
@@ -298,5 +290,5 @@ const selectedTab = ref('user')
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 </style>
