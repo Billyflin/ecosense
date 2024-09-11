@@ -36,16 +36,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
-      # Instalar pnpm usando npm
+      # Instalar pnpm
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Clean up node_modules and pnpm-lock.yaml
-        run: |
-          rm -rf node_modules
-          rm -f pnpm-lock.yaml
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install
