@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import {onMounted, ref} from 'vue'
 import * as THREE from 'three'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
@@ -12,6 +12,8 @@ const threeContainer = ref(null)
 
 onMounted(() => {
   const scene = new THREE.Scene()
+  scene.background = new THREE.Color(0xffffff) // Establece el color de fondo a verde
+
   const camera = new THREE.PerspectiveCamera(75, threeContainer.value.clientWidth / threeContainer.value.clientHeight, 0.1, 1000)
   const renderer = new THREE.WebGLRenderer({antialias: true})
 
@@ -29,15 +31,15 @@ onMounted(() => {
   scene.add(ambientLight)
 
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
-  directionalLight.position.set(0, 10, 10)
+  directionalLight.position.set(-1, 0.5, -0.1)
   scene.add(directionalLight)
 
   // Acercar la cámara al modelo
-  camera.position.set(1, 0.7, 0) // Ajusta la posición según necesites; más cerca y a la altura del modelo
+  camera.position.set(-1, 0.5, -0.1) // Ajusta la posición según necesites; más cerca y a la altura del modelo
 
   const loader = new GLTFLoader()
 
-  loader.load('/CajaEco.glb', (gltf) => {
+  loader.load('/CajaEcoSinTapas.glb', (gltf) => {
     const model = gltf.scene
 
     // Si el modelo ya mide 1 metro en Blender, mantendremos la escala
@@ -74,7 +76,5 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   position: relative;
-  background-color: #f3f4f6; /* Color de fondo gris para el contenedor */
 }
 </style>
-

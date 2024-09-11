@@ -32,44 +32,81 @@
           </div>
           <div class="bg-white shadow-md rounded-lg p-6">
             <h3 class="text-xl font-semibold mb-4">Características Principales</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Característica: Sensores de nivel -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">sensors</span>
+                <span class="material-icons text-green-500 mr-3">sensors</span>
                 <div>
                   <h4 class="font-medium">Sensores de nivel</h4>
                   <p class="text-sm text-gray-600">Monitoreo preciso del llenado</p>
                 </div>
               </div>
+
+              <!-- Característica: Conectividad LoRa -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">wifi</span>
+                <span class="material-icons text-green-500 mr-3">wifi</span>
                 <div>
                   <h4 class="font-medium">Conectividad LoRa</h4>
                   <p class="text-sm text-gray-600">Transmisión eficiente de datos</p>
                 </div>
               </div>
+
+              <!-- Característica: Diseño ergonómico -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">design_services</span>
+                <span class="material-icons text-green-500 mr-3">design_services</span>
                 <div>
                   <h4 class="font-medium">Diseño ergonómico</h4>
                   <p class="text-sm text-gray-600">Fácil uso para todos los usuarios</p>
                 </div>
               </div>
+
+              <!-- Característica: Báscula de peso -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">local_cafe</span>
+                <span class="material-icons text-green-500 mr-3">scale</span>
+                <div>
+                  <h4 class="font-medium">Báscula de peso</h4>
+                  <p class="text-sm text-gray-600">Indica peso para medir contenedor de agua y vasos</p>
+                </div>
+              </div>
+
+              <!-- Característica: Capacidad optimizada -->
+              <div class="flex items-start">
+                <span class="material-icons text-green-500 mr-3">local_cafe</span>
                 <div>
                   <h4 class="font-medium">Capacidad optimizada</h4>
                   <p class="text-sm text-gray-600">Diseñado para vasos de café</p>
                 </div>
               </div>
+
+              <!-- Característica: Batería de larga duración -->
               <div class="flex items-start">
-                <span class="material-icons text-green-500 mr-2">battery_charging_full</span>
+                <span class="material-icons text-green-500 mr-3">battery_charging_full</span>
                 <div>
                   <h4 class="font-medium">Batería de larga duración</h4>
                   <p class="text-sm text-gray-600">Litio con configuración 3s6p</p>
                 </div>
               </div>
+
+              <!-- Característica: Retiro rápido de material reciclado -->
+              <div class="flex items-start">
+                <span class="material-icons text-green-500 mr-3">local_shipping</span>
+                <div>
+                  <h4 class="font-medium">Retiro rápido de material reciclado</h4>
+                  <p class="text-sm text-gray-600">Diseño modular que facilita la extracción y transporte de material reciclado</p>
+                </div>
+              </div>
+
+              <!-- Característica: Lavado de vasos -->
+              <div class="flex items-start">
+                <span class="material-icons text-green-500 mr-3">local_drink</span>
+                <div>
+                  <h4 class="font-medium">Lavado de vasos</h4>
+                  <p class="text-sm text-gray-600">Limpiador de vasos de alta presión</p>
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -239,7 +276,7 @@
                 alt="Logo de EcoSense"
                 class="w-36 mb-2"
             />
-            <p>&copy; 2023 EcoSense. Todos los derechos reservados.</p>
+            <p>&copy; 2024 EcoSense. Todos los derechos reservados.</p>
           </div>
           <div>
             <a href="https://github.com/Billyflin/UfroSustentableApp" target="_blank" rel="noopener noreferrer" class="text-white hover:text-green-200 transition-colors flex items-center">
