@@ -36,13 +36,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: 'npm'
 
-      # Instalar pnpm directamente desde el script de instalación oficial
+      # Instalar pnpm usando npm
       - name: Install pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+        run: npm install -g pnpm
 
       - name: Clean up node_modules and pnpm-lock.yaml
         run: |
