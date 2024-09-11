@@ -1,217 +1,86 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-green-50 to-green-100">
-    <header class="bg-white shadow-md">
+  <div class="min-h-screen bg-gradient-to-br from-green-50 via-green-100 to-green-200">
+    <header class="bg-white shadow-md sticky top-0 z-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/EcoSenseLogo-DHVwhz2SZjI9llKKwW9GgqxFEIykwO.svg"
             alt="Logo de EcoSense"
-            class="w-48"
+            class="w-48 transition-transform duration-300 hover:scale-105"
         />
         <nav>
-          <ul class="flex space-x-4">
-            <li><a href="#about" class="text-green-600 hover:text-green-800">Acerca de</a></li>
-            <li><a href="#features" class="text-green-600 hover:text-green-800">Características</a></li>
-            <li><a href="#download" class="text-green-600 hover:text-green-800">Descargar</a></li>
+          <ul class="flex space-x-6">
+            <li v-for="item in navItems" :key="item.href">
+              <a :href="item.href" class="text-green-600 hover:text-green-800 transition-colors duration-300 font-medium">
+                {{ item.text }}
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <section id="about" class="mb-16">
-        <h2 class="text-3xl font-bold text-green-800 mb-6">Acerca de EcoSense</h2>
+      <section id="about" class="mb-20">
+        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Acerca de EcoSense</h2>
         <div class="grid gap-8 md:grid-cols-2">
-          <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <div class="bg-white shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:scale-105">
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Recolector Inteligente de Vasos de Café</h3>
+              <h3 class="text-2xl font-semibold mb-3 text-green-700">Recolector Inteligente de Vasos de Café</h3>
               <p class="text-gray-600 mb-4">Solución innovadora para la gestión de residuos</p>
             </div>
             <div class="h-64 bg-gray-100">
               <three-model></three-model>
             </div>
           </div>
-          <div class="bg-white shadow-md rounded-lg p-6">
-            <h3 class="text-xl font-semibold mb-4">Características Principales</h3>
+          <div class="bg-white shadow-lg rounded-xl p-6 transform transition-all duration-300 hover:scale-105">
+            <h3 class="text-2xl font-semibold mb-6 text-green-700">Características Principales</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="flex items-start">
-                <span class="material-symbols-outlined text-green-500 mr-3">sensors</span>
-                <div>
-                  <h4 class="font-medium">Sensores de nivel</h4>
-                  <p class="text-sm text-gray-600">Monitoreo preciso del llenado</p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <span class="material-symbols-outlined text-green-500 mr-3">wifi</span>
-                <div>
-                  <h4 class="font-medium">Conectividad LoRa</h4>
-                  <p class="text-sm text-gray-600">Transmisión eficiente de datos</p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <span class="material-symbols-outlined text-green-500 mr-3">design_services</span>
-                <div>
-                  <h4 class="font-medium">Diseño ergonómico</h4>
-                  <p class="text-sm text-gray-600">Fácil uso para todos los usuarios</p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <span class="material-symbols-outlined text-green-500 mr-3">scale</span>
-                <div>
-                  <h4 class="font-medium">Báscula de peso</h4>
-                  <p class="text-sm text-gray-600">Indica peso para medir contenedor de agua y vasos</p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <span class="material-symbols-outlined text-green-500 mr-3">local_cafe</span>
-                <div>
-                  <h4 class="font-medium">Capacidad optimizada</h4>
-                  <p class="text-sm text-gray-600">Diseñado para vasos de café</p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <span class="material-symbols-outlined text-green-500 mr-3">battery_charging_full</span>
-                <div>
-                  <h4 class="font-medium">Batería de larga duración</h4>
-                  <p class="text-sm text-gray-600">Litio con configuración 3s6p</p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <span class="material-symbols-outlined text-green-500 mr-3">local_shipping</span>
-                <div>
-                  <h4 class="font-medium">Retiro rápido de material reciclado</h4>
-                  <p class="text-sm text-gray-600">Diseño modular que facilita la extracción y transporte de material reciclado</p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <span class="material-symbols-outlined text-green-500 mr-3">local_drink</span>
-                <div>
-                  <h4 class="font-medium">Lavado de vasos</h4>
-                  <p class="text-sm text-gray-600">Limpiador de vasos de alta presión</p>
-                </div>
-              </div>
+              <feature-item v-for="feature in features" :key="feature.title" v-bind="feature" />
             </div>
           </div>
         </div>
       </section>
 
-      <section id="features" class="mb-16">
-        <h2 class="text-3xl font-bold text-green-800 mb-6">Cómo Funciona</h2>
-        <div class="bg-white shadow-md rounded-lg p-6">
-          <div class="flex flex-wrap justify-center items-center gap-4">
-            <div class="flex flex-col items-center text-center w-40">
-              <span class="material-symbols-outlined text-4xl text-green-600 mb-2">recycling</span>
-              <h3 class="font-semibold mb-1">Recolector Inteligente</h3>
-              <p class="text-sm text-gray-600">Recopila datos de uso y llenado</p>
-            </div>
-            <div class="flex flex-col items-center">
-              <span class="material-symbols-outlined text-gray-400">arrow_forward</span>
-              <span class="text-xs text-gray-500">LoRa</span>
-            </div>
-            <div class="flex flex-col items-center text-center w-40">
-              <span class="material-symbols-outlined text-4xl text-green-600 mb-2">router</span>
-              <h3 class="font-semibold mb-1">Gateway LoRa</h3>
-              <p class="text-sm text-gray-600">Recibe datos de múltiples recolectores</p>
-            </div>
-            <div class="flex flex-col items-center">
-              <span class="material-symbols-outlined text-gray-400">arrow_forward</span>
-              <span class="text-xs text-gray-500">Internet</span>
-            </div>
-            <div class="flex flex-col items-center text-center w-40">
-              <span class="material-symbols-outlined text-4xl text-green-600 mb-2">dns</span>
-              <h3 class="font-semibold mb-1">Servidor Central</h3>
-              <p class="text-sm text-gray-600">Procesa y agrega datos</p>
-            </div>
-            <div class="flex flex-col items-center">
-              <span class="material-symbols-outlined text-gray-400">arrow_forward</span>
-              <span class="text-xs text-gray-500">API</span>
-            </div>
-            <div class="flex flex-col items-center text-center w-40">
-              <span class="material-symbols-outlined text-4xl text-green-600 mb-2">cloud_upload</span>
-              <h3 class="font-semibold mb-1">Firebase</h3>
-              <p class="text-sm text-gray-600">Almacena y distribuye información</p>
-            </div>
-            <div class="flex flex-col items-center">
-              <span class="material-symbols-outlined text-gray-400">arrow_forward</span>
-              <span class="text-xs text-gray-500">SDK</span>
-            </div>
-            <div class="flex flex-col items-center text-center w-40">
-              <span class="material-symbols-outlined text-4xl text-green-600 mb-2">devices</span>
-              <h3 class="font-semibold mb-1">App EcoSense</h3>
-              <p class="text-sm text-gray-600">Interfaz para usuarios y administradores</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <process-step></process-step>
 
-      <section class="mb-16">
-        <h2 class="text-3xl font-bold text-green-800 mb-6">Aplicación EcoSense</h2>
-        <div>
-          <div class="grid w-full grid-cols-2 rounded-t-lg overflow-hidden">
+      <section class="mb-20">
+        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Aplicación EcoSense</h2>
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+          <div class="grid grid-cols-2">
             <button
-                @click="selectedTab = 'user'"
+                v-for="tab in ['user', 'admin']"
+                :key="tab"
+                @click="selectedTab = tab"
                 :class="[
-                'p-4 transition-colors duration-200 font-semibold',
-                selectedTab === 'user' ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-green-100'
+                'p-4 transition-colors duration-300 font-semibold text-lg',
+                selectedTab === tab ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-700 hover:bg-green-100'
               ]"
             >
-              Funciones de Usuario
-            </button>
-            <button
-                @click="selectedTab = 'admin'"
-                :class="[
-                'p-4 transition-colors duration-200 font-semibold',
-                selectedTab === 'admin' ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-green-100'
-              ]"
-            >
-              Funciones de Administrador
+              {{ tab === 'user' ? 'Funciones de Usuario' : 'Funciones de Administrador' }}
             </button>
           </div>
-          <div class="bg-white shadow-md rounded-b-lg p-6">
+          <div class="p-6">
             <div v-if="selectedTab === 'user'">
-              <h3 class="flex items-center text-xl font-semibold mb-4">
-                <span class="material-symbols-outlined mr-2 text-green-500">person</span>
+              <h3 class="flex items-center text-2xl font-semibold mb-6 text-green-700">
+                <span class="material-symbols-outlined mr-3 text-3xl">person</span>
                 Funcionalidades para Usuarios
               </h3>
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <span class="material-symbols-outlined text-green-500 mr-2">star</span>
-                  <span>Ver puntuación actual de reciclaje</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="material-symbols-outlined text-green-500 mr-2">redeem</span>
-                  <span>Lista de beneficios obtenidos</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="material-symbols-outlined text-green-500 mr-2">history</span>
-                  <span>Historial personal de reciclaje</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="material-symbols-outlined text-green-500 mr-2">eco</span>
-                  <span>Consejos para reducir el uso de desechables</span>
+              <ul class="space-y-4">
+                <li v-for="feature in userFeatures" :key="feature.text" class="flex items-start">
+                  <span class="material-symbols-outlined text-green-500 mr-3 text-2xl">{{ feature.icon }}</span>
+                  <span class="text-lg">{{ feature.text }}</span>
                 </li>
               </ul>
             </div>
             <div v-if="selectedTab === 'admin'">
-              <h3 class="flex items-center text-xl font-semibold mb-4">
-                <span class="material-symbols-outlined mr-2 text-green-500">admin_panel_settings</span>
+              <h3 class="flex items-center text-2xl font-semibold mb-6 text-green-700">
+                <span class="material-symbols-outlined mr-3 text-3xl">admin_panel_settings</span>
                 Panel de Administración
               </h3>
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <span class="material-symbols-outlined text-green-500 mr-2">monitoring</span>
-                  <span>Monitoreo en tiempo real de los recolectores</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="material-symbols-outlined text-green-500 mr-2">analytics</span>
-                  <span>Estadísticas de uso y eficiencia</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="material-symbols-outlined text-green-500 mr-2">map</span>
-                  <span>Gestión de rutas de recolección</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="material-symbols-outlined text-green-500 mr-2">nature</span>
-                  <span>Análisis de impacto ambiental</span>
+              <ul class="space-y-4">
+                <li v-for="feature in adminFeatures" :key="feature.text" class="flex items-start">
+                  <span class="material-symbols-outlined text-green-500 mr-3 text-2xl">{{ feature.icon }}</span>
+                  <span class="text-lg">{{ feature.text }}</span>
                 </li>
               </ul>
             </div>
@@ -219,59 +88,37 @@
         </div>
       </section>
 
-      <section id="download" class="mb-16">
-        <h2 class="text-3xl font-bold text-green-800 mb-6">Plataformas Soportadas</h2>
-        <div class="bg-white shadow-md rounded-lg p-6">
-          <div class="flex justify-center space-x-8">
-            <div class="text-center">
-              <span class="material-symbols-outlined text-5xl text-green-600">android</span>
-              <p>Android</p>
-            </div>
-            <div class="text-center">
-              <span class="material-symbols-outlined text-5xl text-blue-500">phone_iphone</span>
-              <p>iOS</p>
-            </div>
-            <div class="text-center">
-              <span class="material-symbols-outlined text-5xl text-gray-700">desktop_windows</span>
-              <p>Windows (Nativo)</p>
-            </div>
+      <section id="download" class="mb-20">
+        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Plataformas Soportadas</h2>
+        <div class="bg-white shadow-lg rounded-xl p-8">
+          <div class="flex justify-center space-x-12">
+            <platform-item v-for="platform in platforms" :key="platform.name" v-bind="platform" />
           </div>
         </div>
       </section>
 
-      <section class="text-center">
-        <h2 class="text-3xl font-bold text-green-800 mb-4">¡Únete a EcoSense Hoy!</h2>
-        <p class="mb-6 text-lg text-green-600">Descarga la aplicación y sé parte del cambio hacia un campus más sostenible.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <button class="bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg flex items-center transition-colors duration-200 transform hover:scale-105">
-            <span class="material-symbols-outlined mr-2">android</span>
-            Descargar para Android
-          </button>
-          <button class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg flex items-center transition-colors duration-200 transform hover:scale-105">
-            <span class="material-symbols-outlined mr-2">phone_iphone</span>
-            Descargar para iOS
-          </button>
-          <button class="bg-gray-700 hover:bg-gray-800 text-white py-3 px-6 rounded-lg flex items-center transition-colors duration-200 transform hover:scale-105">
-            <span class="material-symbols-outlined mr-2">desktop_windows</span>
-            Descargar para Windows
-          </button>
+      <section class="text-center mb-20">
+        <h2 class="text-4xl font-bold text-green-800 mb-6">¡Únete a EcoSense Hoy!</h2>
+        <p class="mb-8 text-xl text-green-600">Descarga la aplicación y sé parte del cambio hacia un campus más sostenible.</p>
+        <div class="flex flex-wrap justify-center gap-6">
+          <download-button v-for="button in downloadButtons" :key="button.platform" v-bind="button" />
         </div>
       </section>
     </main>
 
-    <footer class="bg-green-800 text-white py-8">
+    <footer class="bg-green-800 text-white py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-4 md:mb-0">
+          <div class="mb-6 md:mb-0">
             <img
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/EcoSenseLogoBlanco-vqrjUQ4yuYgXlXn5r14s2BXzsYxs8l.svg"
                 alt="Logo de EcoSense"
-                class="w-36 mb-2"
+                class="w-40 mb-4"
             />
-            <p>&copy; 2024 EcoSense. Todos los derechos reservados.</p>
+            <p class="text-lg">&copy; 2024 EcoSense. Todos los derechos reservados.</p>
           </div>
           <div>
-            <a href="https://github.com/Billyflin/UfroSustentableApp" target="_blank" rel="noopener noreferrer" class="text-white hover:text-green-200 transition-colors flex items-center">
+            <a href="https://github.com/Billyflin/UfroSustentableApp" target="_blank" rel="noopener noreferrer" class="text-white hover:text-green-200 transition-colors flex items-center text-lg">
               <span class="material-symbols-outlined mr-2">code</span>
               Ver en GitHub
             </a>
@@ -284,11 +131,68 @@
 
 <script setup>
 import { ref } from 'vue'
-import ThreeModel from "./components/ThreeModel.vue";
+import ThreeModel from "./components/ThreeModel.vue"
+import FeatureItem from "./components/FeatureItem.vue"
+import ProcessStep from "./components/ProcessStep.vue"
+import PlatformItem from "./components/PlatformItem.vue"
+import DownloadButton from "./components/DownloadButton.vue"
 
 const selectedTab = ref('user')
+
+const navItems = [
+  { href: "#about", text: "Acerca de" },
+  { href: "#features", text: "Características" },
+  { href: "#download", text: "Descargar" },
+]
+
+const features = [
+  { icon: "sensors", title: "Sensores de nivel", description: "Monitoreo preciso del llenado" },
+  { icon: "wifi", title: "Conectividad LoRa", description: "Transmisión eficiente de datos" },
+  { icon: "design_services", title: "Diseño ergonómico", description: "Fácil uso para todos los usuarios" },
+  { icon: "scale", title: "Báscula de peso", description: "Indica peso para medir contenedor de agua y vasos" },
+  { icon: "local_cafe", title: "Capacidad optimizada", description: "Diseñado para vasos de café" },
+  { icon: "battery_charging_full", title: "Batería de larga duración", description: "Litio con configuración 3s6p" },
+  { icon: "local_shipping", title: "Retiro rápido de material reciclado", description: "Diseño modular que facilita la extracción y transporte" },
+  { icon: "local_drink", title: "Lavado de vasos", description: "Limpiador de vasos de alta presión" },
+]
+
+
+const userFeatures = [
+  { icon: "star", text: "Ver puntuación actual de reciclaje" },
+  { icon: "redeem", text: "Lista de beneficios obtenidos" },
+  { icon: "history", text: "Historial personal de reciclaje" },
+  { icon: "eco", text: "Consejos para reducir el uso de desechables" },
+]
+
+const adminFeatures = [
+  { icon: "monitoring", text: "Monitoreo en tiempo real de los recolectores" },
+  { icon: "analytics", text: "Estadísticas de uso y eficiencia" },
+  { icon: "map", text: "Gestión de rutas de recolección" },
+  { icon: "nature", text: "Análisis de impacto ambiental" },
+]
+
+const platforms = [
+  { icon: "android", name: "Android" },
+  { icon: "phone_iphone", name: "iOS" },
+  { icon: "desktop_windows", name: "Windows (Nativo)" },
+]
+
+const downloadButtons = [
+  { platform: "Android", icon: "android", color: "bg-green-500 hover:bg-green-600" },
+  { platform: "iOS", icon: "phone_iphone", color: "bg-blue-500 hover:bg-blue-600" },
+  { platform: "Windows", icon: "desktop_windows", color: "bg-gray-700 hover:bg-gray-800" },
+]
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+.material-symbols-outlined {
+  font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 48
+}
 </style>
+
