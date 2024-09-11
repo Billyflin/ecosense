@@ -34,11 +34,14 @@ jobs:
           node-version: "20"
           cache: "pnpm"
 
-      # Usar corepack para manejar pnpm
-      - name: Enable Corepack and Install pnpm
+      # Instalar pnpm manualmente
+      - name: Install pnpm
         run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+          npm install -g pnpm
+          export PATH="$(npm bin -g):$PATH"
+
+      - name: Verify pnpm installation
+        run: pnpm --version
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
