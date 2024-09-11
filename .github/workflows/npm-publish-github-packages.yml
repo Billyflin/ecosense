@@ -38,6 +38,10 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
+      # Instalar pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Clean up node_modules and pnpm-lock.yaml
         run: |
           rm -rf node_modules
