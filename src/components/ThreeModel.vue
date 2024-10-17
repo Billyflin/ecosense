@@ -39,7 +39,7 @@ onMounted(() => {
 
   const loader = new GLTFLoader()
 
-  loader.load('/ecosense/CajaEcoSinTapas.glb', (gltf) => {
+  loader.load('CajaEcoSinTapas.glb', (gltf) => {
     const model = gltf.scene
 
     // Si el modelo ya mide 1 metro en Blender, mantendremos la escala
