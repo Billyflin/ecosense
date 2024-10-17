@@ -14,6 +14,7 @@
                 {{ item.text }}
               </a>
             </li>
+            <iframe src="https://github.com/sponsors/Billyflin/button" title="Sponsor Billyflin" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
           </ul>
         </nav>
       </div>
@@ -575,7 +576,6 @@ const features = [
 const navItems = [
   { href: "#about", text: "Acerca de" },
   { href: "#features", text: "Características" },
-  { href: "#download", text: "Descargar" },
 ]
 
 const platforms = [
