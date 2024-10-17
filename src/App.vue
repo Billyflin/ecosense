@@ -264,36 +264,37 @@
           <download-button v-for="button in downloadButtons" :key="button.platform" v-bind="button" />
         </div>
       </section>
-      <section class="mb-20">
-        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Presupuesto del Contenedor de Vasos</h2>
-        <div class="bg-white shadow-lg rounded-xl p-8">
-          <table class="min-w-full bg-white border-collapse">
-            <thead>
-            <tr>
-              <th class="py-2 px-4 border-b text-left text-green-800">Nombre</th>
-              <th class="py-2 px-4 border-b text-left text-green-800">Precio</th>
-              <th class="py-2 px-4 border-b text-left text-green-800">Cantidad</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="item in budgetItems" :key="item.name" class="border-t">
-              <td class="py-2 px-4">{{ item.name }}</td>
-              <td class="py-2 px-4">CLP {{ item.price.toLocaleString('es-CL') }}</td>
-              <td class="py-2 px-4">{{ item.quantity }}</td>
-            </tr>
-            </tbody>
-            <tfoot>
-            <tr>
-              <td colspan="2" class="py-2 px-4 text-right font-bold text-green-800">Total Estimado:</td>
-              <td colspan="2" class="py-2 px-4 text-left font-bold text-green-800">CLP {{ totalCost }}</td>
-            </tr>
-            </tfoot>
-          </table>
-          <p class="text-sm text-gray-600 mt-4 text-center">
-            *Los precios mostrados son estimados y pueden variar.
-          </p>
-        </div>
-      </section>
+
+<!--      <section class="mb-20">-->
+<!--        <h2 class="text-4xl font-bold text-green-800 mb-8 text-center">Presupuesto del Contenedor de Vasos</h2>-->
+<!--        <div class="bg-white shadow-lg rounded-xl p-8">-->
+<!--          <table class="min-w-full bg-white border-collapse">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--              <th class="py-2 px-4 border-b text-left text-green-800">Nombre</th>-->
+<!--              <th class="py-2 px-4 border-b text-left text-green-800">Precio</th>-->
+<!--              <th class="py-2 px-4 border-b text-left text-green-800">Cantidad</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr v-for="item in budgetItems" :key="item.name" class="border-t">-->
+<!--              <td class="py-2 px-4">{{ item.name }}</td>-->
+<!--              <td class="py-2 px-4">CLP {{ item.price.toLocaleString('es-CL') }}</td>-->
+<!--              <td class="py-2 px-4">{{ item.quantity }}</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--            <tfoot>-->
+<!--            <tr>-->
+<!--              <td colspan="2" class="py-2 px-4 text-right font-bold text-green-800">Total Estimado:</td>-->
+<!--              <td colspan="2" class="py-2 px-4 text-left font-bold text-green-800">CLP {{ totalCost }}</td>-->
+<!--            </tr>-->
+<!--            </tfoot>-->
+<!--          </table>-->
+<!--          <p class="text-sm text-gray-600 mt-4 text-center">-->
+<!--            *Los precios mostrados son estimados y pueden variar.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </section>-->
 
 
 
@@ -326,6 +327,9 @@
             />
             <p class="text-lg">&copy; 2024 EcoSense. </p>
           </div>
+          <div class="mb-6 md:mb-0">
+            <iframe src="https://github.com/sponsors/Billyflin/button" title="Sponsor Billyflin" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+          </div>
           <div>
             <a href="https://github.com/Billyflin/ecosense" target="_blank" rel="noopener noreferrer" class="text-white hover:text-green-200 transition-colors flex items-center text-lg">
               <span class="material-symbols-outlined mr-2">code</span>
@@ -350,18 +354,18 @@ import AppUserFlowDiagram from "./AppUserFlowDiagram.vue";
 import DiagramaRecoleccion from "./DiagramaReecoleccion.vue";
 import IncentivesSection from "./IncentivesSection.vue";
 
-const budgetItems = [
-  { name: 'Bomba de agua de alta presión', price: 17000, quantity: 1 },
-  { name: 'Limpia vasos', price: 7717, quantity: 1 },
-  { name: 'Tubo PVC 3 metros 110mm', price: 10000, quantity: 2 },
-  { name: 'Dispositivo Lora', price: 10952, quantity: 1 },
-  { name: 'Esp32c3 - esp32-c6', price: 5000, quantity: 4 },
-  { name: 'Bidón 20 litros', price: 4990, quantity: 2 },
-  { name: 'Pesa 50k', price: 809, quantity: 5 },
-  { name: 'Sensor distancia láser', price: 2702, quantity: 6 },
-  { name: 'Acrílico', price: 7500, quantity: 1 },
-  { name: 'Pantalla (Opcional)', price: 10000, quantity: 1 }
-];
+// const budgetItems = [
+//   { name: 'Bomba de agua de alta presión', price: 17000, quantity: 1 },
+//   { name: 'Limpia vasos', price: 7717, quantity: 1 },
+//   { name: 'Tubo PVC 3 metros 110mm', price: 10000, quantity: 2 },
+//   { name: 'Dispositivo Lora', price: 10952, quantity: 1 },
+//   { name: 'Esp32c3 - esp32-c6', price: 5000, quantity: 4 },
+//   { name: 'Bidón 20 litros', price: 4990, quantity: 2 },
+//   { name: 'Pesa 50k', price: 809, quantity: 5 },
+//   { name: 'Sensor distancia láser', price: 2702, quantity: 6 },
+//   { name: 'Acrílico', price: 7500, quantity: 1 },
+//   { name: 'Pantalla (Opcional)', price: 10000, quantity: 1 }
+// ];
 
 const totalCost = computed(() => {
   return budgetItems.reduce((total, item) => total + (item.price * item.quantity), 0).toLocaleString('es-CL');
